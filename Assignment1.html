@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reverse Each Word</title>
+</head>
+<body>
+
+<p>Hello World From Wisdom Sprouts IT Training Hub</p>
+ <button onclick="reverseWord()">Reverse Words</button>
+
+  <p>Output : <span id="result"></span></p>
+
+  <script>
+    function reverseWord() {
+    
+
+    const str ="Hello World From Wisdom Sprouts IT Training Hub"
+
+      const reversed = str
+        .split(" ")
+        .map(word => word.split("").reverse().join(""))
+        .join(" ");
+
+      document.getElementById("result").textContent = reversed;
+    }
+
+    console.log(reversed);
+  </script>
+</body>
+</html>
