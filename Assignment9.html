@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <pre>Output : <span id="output"></span></pre>
+
+  <script>
+  
+    function wait(sec) {
+      return new Promise(resolve => setTimeout(resolve, sec));
+    }
+
+    async function task(name) {
+      const delay = Math.random() * 1500 + 500; 
+      await wait(delay);
+      document.getElementById("output").textContent += name + " completed\n";
+    }
+
+    async function runTasks() {
+      await task("Task A");
+      await task("Task B");
+      await task("Task C");
+      document.getElementById("output").textContent += "All tasks completed";
+    }
+
+    runTasks();
+  </script>
+
+</body>
+
+</html>
