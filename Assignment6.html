@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment6</title>
+</head>
+<body>
+    
+    <button onclick="countWord()">Words</button>
+    <p>Output :<span id="output"></span></p>
+
+    <script>
+        function countWord(){
+            const words= ["dog", "apple", "sun" ,"table", "cat", "pie", "strawberry"]
+            const grouped ={};
+
+            words.forEach(word =>{
+                let len = word.length;
+                if(!grouped[len]){
+                    grouped[len]= []
+                }
+                grouped[len].push(word)
+            })
+            document.getElementById('output').innerText =JSON.stringify(grouped);
+        }
+
+    </script>
+
+</body>
+</html>
