@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>User Information</h1>
+    <button onclick="userInfo()">Check Age</button>
+    <p>Output :<span id="output"></span></p>
+
+    <script>
+
+        const users = [
+            {name:"Alice", age:22},
+            {name:"Bob", age:17},
+            {name:"Charlie", age:19}
+        ]
+
+        function userInfo(){
+
+            const filters =users.filter(user => user.age > 18); 
+             document.getElementById("output").textContent = JSON.stringify(filters)
+        }
+    </script>
+
+</body>
+</html>
