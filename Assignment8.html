@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button onclick="copyObject()">Deep Copy</button>
+
+<p><strong>Original Object:</strong></p>
+<pre id="original"></pre>
+
+<p><strong>Copied Object:</strong></p>
+<pre id="copied"></pre>
+
+<script>
+  
+  function deepCopy(obj) {
+    if (obj === null || typeof obj !== 'object') {
+      return obj;
+    }
+
+    if (Array.isArray(obj)) {
+      return obj.map(deepCopy);
+    }
+
+    const result = {};
+    for (let key in obj) {
+      result[key] = deepCopy(obj[key]);
+    }
+   return result;
+  }
+
+  function copyObject() {
+    const original = {
+      name: "John",
+      address: {
+        city: "New York",
+        coordinates: {
+          lat: 40.7128,
+          lng: -74.006
+        }
+      }
+    };
+
+    // Make deep copy
+    const copied = deepCopy(original);
+
+    copied.name = "Bhakti";
+    copied.address.city = "Pune";
+
+    document.getElementById("original").textContent = JSON.stringify(original, null, 2);
+    document.getElementById("copied").textContent = JSON.stringify(copied, null, 2);
+  }
+</script>
+
+</body>
+</html>  
