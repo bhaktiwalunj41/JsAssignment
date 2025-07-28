@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 5</title>
+</head>
+<body>
+ 
+  <input type="text" id="input-container"/><br/>
+  <button onclick="generateSlug()">Generate Slug</button>
+  <p>Output : <span id="output"></span></p>
+  <script>
+
+    function generateSlug(){
+      let input = document.getElementById('input-container').value.toLowerCase(); 
+
+      //Remove special character
+      input= input.replace(/[^a-z0-9\s-]/g, "");
+
+      //replace spaces with hyphen
+      input = input.trim().replace(/\s+/g, "-");
+
+     document.getElementById('output').innerText = input; 
+    }
+  </script>
+
+</body>
+</html>
