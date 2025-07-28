@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+</head>
+<body>
+  
+    <button onclick="sortProduct()">Sort Product</button>
+    <p>Output :<span id="output"></span></p>
+
+<script>
+
+    const products =[
+            {name:"Keyboard", price:499},
+            {name:"Monitor", price:8999},
+            {name:"Mouse", price:299}
+        ]
+
+    function sortProduct(){
+        
+
+        for(let i=0; i<products.length-1 ; i++){
+            for(let j=i+1; j<products.length; j++){
+                if(products[i].price > products[j].price){
+                    let temp= products[i];
+                    products[i] = products[j];
+                    products[j] = temp;
+                }
+            }
+        }
+
+
+        document.getElementById('output').textContent= JSON.stringify(products);
+    }
+    
+</script>
+
+</body>
+</html>
